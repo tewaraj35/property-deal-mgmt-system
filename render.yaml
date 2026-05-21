@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: property-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
