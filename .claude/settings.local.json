@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/tewad/Documents/Projects/nesh-property-system/frontend/src/components/features//**)",
+      "Bash(npm run *)",
+      "Bash(find /c/Users/tewad/Documents/Projects/nesh-property-system/docs -type f -name \"*\" 2>/dev/null)",
+      "Read(//c/Users/tewad/Documents/Projects/nesh-property-system/docs/**)"
+    ]
+  }
+}
