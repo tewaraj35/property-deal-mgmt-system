@@ -59,11 +59,11 @@ export const DashboardPage: React.FC = () => {
 
   useEffect(() => {
     statsService.getDashboardStats()
-      .then((res) => setStats(res.data ?? null))
+      .then((res) => setStats(res ?? null))
       .catch(() => setStatsError(true))
 
     statsService.getRecentActivity()
-      .then((res) => setActivity(res.data ?? []))
+      .then((res) => setActivity(res ?? []))
       .catch(() => {})
   }, [])
 

@@ -1,5 +1,5 @@
-import { apiClient, makeRequest } from "../utils/api-client";
-import { type User, type AuthPayload, type AuthResponse } from "../types";
+import { makeRequest } from "../utils/api-client";
+import { type User, type AuthResponse } from "../types";
 
 /**
  * Frontend Auth Service - handles API calls for authentication
