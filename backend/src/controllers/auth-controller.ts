@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { authService } from "../services/auth-service";
 import { supabaseService } from "../services/supabase-service";
-import { ApiError } from "../types";
 
 /**
  * Auth controller - handles authentication endpoints

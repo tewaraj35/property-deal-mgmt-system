@@ -63,7 +63,7 @@ export const loanClientController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const client = await loanClientService.getLoanClientById(id);
 
       if (
@@ -152,7 +152,7 @@ export const loanClientController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const client = await loanClientService.getLoanClientById(id);
 
       if (
@@ -202,7 +202,7 @@ export const loanClientController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const client = await loanClientService.getLoanClientById(id);
 
       if (

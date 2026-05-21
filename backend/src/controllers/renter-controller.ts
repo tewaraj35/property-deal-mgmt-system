@@ -55,7 +55,7 @@ export const renterController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const renter = await renterService.getRenterById(id);
 
       if (
@@ -130,7 +130,7 @@ export const renterController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const renter = await renterService.getRenterById(id);
 
       if (
@@ -173,7 +173,7 @@ export const renterController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const renter = await renterService.getRenterById(id);
 
       if (

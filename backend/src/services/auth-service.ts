@@ -45,7 +45,7 @@ export const authService = {
         role: profile.role,
       },
       config.supabaseJwtSecret,
-      { expiresIn: config.jwtTokenExpiry }
+      { expiresIn: config.jwtTokenExpiry as any }
     );
 
     const user: User = {
@@ -153,7 +153,7 @@ export const authService = {
         role: decoded.role,
       },
       config.supabaseJwtSecret,
-      { expiresIn: config.jwtTokenExpiry }
+      { expiresIn: config.jwtTokenExpiry as any }
     );
   },
 

@@ -90,7 +90,7 @@ export const fileUploadController = {
         return;
       }
 
-      const { entityType, entityId } = req.params;
+      const { entityType, entityId } = req.params as Record<string, string>;
 
       // Normalize entity type
       const normalizedEntityType = entityType === "loan_client" ? "loan_client" : entityType;
@@ -137,7 +137,7 @@ export const fileUploadController = {
         return;
       }
 
-      const { fileId } = req.params;
+      const { fileId } = req.params as Record<string, string>;
 
       const { data, file } = await fileUploadService.downloadFile(fileId);
 
@@ -166,7 +166,7 @@ export const fileUploadController = {
         return;
       }
 
-      const { fileId } = req.params;
+      const { fileId } = req.params as Record<string, string>;
 
       await fileUploadService.deleteFile(fileId, req.context.userId);
 

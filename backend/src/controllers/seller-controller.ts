@@ -58,7 +58,7 @@ export const sellerController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const seller = await sellerService.getSellerById(id);
 
       if (
@@ -136,7 +136,7 @@ export const sellerController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const seller = await sellerService.getSellerById(id);
 
       if (
@@ -182,7 +182,7 @@ export const sellerController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const seller = await sellerService.getSellerById(id);
 
       if (

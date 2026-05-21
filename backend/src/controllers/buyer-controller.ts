@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { buyerService } from "../services/buyer-service";
-import { RequestContext } from "../types";
 
 /**
  * Buyer controller - handles buyer endpoints
@@ -69,7 +68,7 @@ export const buyerController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
       const buyer = await buyerService.getBuyerById(id);
 
       // Check authorization
@@ -167,7 +166,7 @@ export const buyerController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
 
       // Check authorization
       const buyer = await buyerService.getBuyerById(id);
@@ -218,7 +217,7 @@ export const buyerController = {
         return;
       }
 
-      const { id } = req.params;
+      const { id } = req.params as Record<string, string>;
 
       // Check authorization
       const buyer = await buyerService.getBuyerById(id);
