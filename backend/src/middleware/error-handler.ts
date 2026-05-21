@@ -28,13 +28,19 @@ export const errorHandler = (
     return;
   }
 
-  // Handle Supabase errors
-  if (error.message?.includes("PGRST")) {
-    res.status(400).json({
+  // Handle Supabase / PostgreSQL errors
+  const pgCode = error?.code;
+  if (pgCode || error.message?.includes("PGRST")) {
+    const statusCode = pgCode === "23505" ? 409   // unique violation
+                     : pgCode === "23503" ? 400   // foreign key violation
+                     : pgCode === "23514" ? 400   // check constraint violation
+                     : 400;
+    res.status(statusCode).json({
       status: "error",
       error: {
         code: "DATABASE_ERROR",
-        message: "Database operation failed",
+        message: error.message || "Database operation failed",
+        detail: error.detail || undefined,
       },
       meta: {
         timestamp: new Date().toISOString(),
@@ -60,13 +66,12 @@ export const errorHandler = (
     return;
   }
 
-  // Handle other errors
-  const isDev = process.env.NODE_ENV !== "production";
+  // Handle other errors — always include message to aid debugging
   res.status(500).json({
     status: "error",
     error: {
       code: "INTERNAL_SERVER_ERROR",
-      message: isDev ? (error?.message || "An unexpected error occurred") : "An unexpected error occurred",
+      message: error?.message || "An unexpected error occurred",
     },
     meta: {
       timestamp: new Date().toISOString(),
